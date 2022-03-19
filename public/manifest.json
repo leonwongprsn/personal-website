@@ -1,6 +1,7 @@
 {
-    "short_name": "React App",
-    "name": "Create React App Sample",
+    "short_name": "Leon's Space",
+    "name": "Leon's Space",
+    "description": "Personal website of Leon Wong",
     "icons": [
         {
             "src": "letter-l.png",
