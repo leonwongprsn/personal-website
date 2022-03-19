@@ -10,8 +10,6 @@ export default function RotatableCard(props) {
     const [showPopup, setShowPopup] = useState(false);
     const [showImageViewer, setShowImageViewer] = useState(false);
 
-    console.log("Rota", props.popupContent);
-
     const renderCardDetails = (detailItemList) => {
         return (
             <>

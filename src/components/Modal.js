@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 const Modal = (props) => {
-    console.log(props.popupContent);
     return ReactDOM.createPortal(
         <div onClick={props.onDismiss} className="popup" id="popup">
             <div

@@ -4,7 +4,6 @@ const NavigationButton = () => {
     const [checked, setChecked] = useState(false);
 
     const closeNav = () => {
-        console.log("haha");
         setChecked(false);
     };
 
