@@ -18,6 +18,7 @@ const Footer = () => {
                                 <a
                                     href="https://github.com/leonwongprsn"
                                     target="_blank"
+                                    rel="noreferrer"
                                     className="footer__link"
                                 >
                                     Github
@@ -27,6 +28,7 @@ const Footer = () => {
                                 <a
                                     href="https://www.linkedin.com/in/lwwongleon/"
                                     target="_blank"
+                                    rel="noreferrer"
                                     className="footer__link"
                                 >
                                     Linkedin
