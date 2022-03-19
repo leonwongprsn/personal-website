@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import Modal from "./Modal";
-import ImageViewer from "react-simple-image-viewer";
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
 
 export default function RotatableCard(props) {
     const detailUrl = props.detailUrl ?? "#";
@@ -9,6 +10,8 @@ export default function RotatableCard(props) {
 
     const [showPopup, setShowPopup] = useState(false);
     const [showImageViewer, setShowImageViewer] = useState(false);
+
+    const [photoIndex, setPhotoIndex] = useState(0);
 
     const renderCardDetails = (detailItemList) => {
         return (
@@ -35,14 +38,27 @@ export default function RotatableCard(props) {
 
     const renderImageViewer = () => {
         return ReactDOM.createPortal(
-            <ImageViewer
-                src={props.images}
-                currentIndex={0}
-                disableScroll={false}
-                closeOnClickOutside={false}
-                onClose={() => {
-                    setShowImageViewer(false);
-                }}
+            <Lightbox
+                mainSrc={props.images[photoIndex]}
+                nextSrc={props.images[(photoIndex + 1) % props.images.length]}
+                prevSrc={
+                    props.images[
+                        (photoIndex + props.images.length - 1) %
+                            props.images.length
+                    ]
+                }
+                onCloseRequest={() => setShowImageViewer(false)}
+                onMovePrevRequest={() =>
+                    setPhotoIndex(
+                        (photoIndex + props.images.length - 1) %
+                            props.images.length
+                    )
+                }
+                onMoveNextRequest={() =>
+                    setPhotoIndex((photoIndex + 1) % props.images.length)
+                }
+                imageTitle={`Screenshot of USTree ${photoIndex + 1} of 6`}
+                clickOutsideToClose={false}
             />,
             document.querySelector("#modal")
         );

@@ -185,8 +185,8 @@ const App = () => {
                                 ]}
                                 detailUrl="#modal"
                                 images={[
-                                    "./img/ustree-demo1.PNG",
                                     "./img/ustree-demo6.PNG",
+                                    "./img/ustree-demo1.PNG",
                                     "./img/ustree-demo5.PNG",
                                     "./img/ustree-demo4.PNG",
                                     "./img/ustree-demo3.PNG",
