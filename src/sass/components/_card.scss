@@ -1,0 +1,367 @@
+.card {
+    $card-height: 52rem;
+    perspective: 150rem;
+    //-moz-perspective: 150rem;
+    height: $card-height; //same height with the children with absolute. Because if all children is positioned absolute, the parent will lose its height
+    transition: all 0.8s ease;
+    position: relative;
+
+    &__side {
+        height: $card-height;
+        transition: all 0.8s;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden; //hide the back part: 180deg fliped face
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+        &--front {
+            background-color: $color-white;
+        }
+
+        &--back {
+            background-color: $color-white;
+            transform: rotateY(180deg);
+
+            &-1 {
+                background-image: linear-gradient(
+                    to right bottom,
+                    $color-secondary-light,
+                    $color-secondary-dark
+                );
+            }
+
+            &-2 {
+                background-image: linear-gradient(
+                    to right bottom,
+                    $color-card-2-light,
+                    $color-card-2-dark
+                );
+            }
+
+            &-3 {
+                background-image: linear-gradient(
+                        to right bottom,
+                        rgba($color-tertiary-light, 0.7),
+                        rgba($color-tertiary-dark, 1)
+                    ),
+                    url(../img/usthing-demo.png);
+                background-size: cover;
+            }
+        }
+    }
+
+    &:hover &__side--front {
+        transform: rotateY(-180deg);
+    }
+
+    &:hover &__side--back {
+        transform: rotateY(0);
+    }
+
+    &__picture {
+        background-size: cover;
+        height: 23rem;
+        background-blend-mode: screen;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+        &-1 {
+            background-image: linear-gradient(
+                    to right bottom,
+                    rgba($color-secondary-light, 1),
+                    rgba($color-secondary-dark, 1)
+                ),
+                url(../img/sports-bg.jpeg); //move out the COMPILED css folder, not sass
+        }
+
+        &-2 {
+            background-image: linear-gradient(
+                    to right bottom,
+                    rgba($color-card-2-light, 1),
+                    rgba($color-card-2-dark, 1)
+                ),
+                url("https://images.unsplash.com/photo-1483546416237-76fd26bbcdd1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"); //move out the COMPILED css folder, not sass
+        }
+
+        &-3 {
+            background-image: linear-gradient(
+                    to right bottom,
+                    rgba($color-tertiary-light, 1),
+                    rgba($color-tertiary-dark, 1)
+                ),
+                url(../img/usthing-demo.png); //move out the COMPILED css folder, not sass
+        }
+    }
+
+    &__heading {
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: right;
+        color: white;
+        position: absolute;
+        top: 8rem;
+        right: 2rem;
+        width: 75%;
+    }
+
+    &__heading--span {
+        padding: 1rem 1.5rem;
+        -webkit-box-decoration-break: clone;
+
+        &-1 {
+            background-image: linear-gradient(
+                to right bottom,
+                rgba($color-secondary-light, 0.85),
+                rgba($color-secondary-dark, 0.85)
+            );
+        }
+
+        &-2 {
+            background-image: linear-gradient(
+                to right bottom,
+                rgba($color-card-2-light, 0.85),
+                rgba($color-card-2-dark, 0.85)
+            );
+        }
+
+        &-3 {
+            background-image: linear-gradient(
+                to right bottom,
+                rgba($color-tertiary-light, 0.85),
+                rgba($color-tertiary-dark, 0.85)
+            );
+        }
+    }
+
+    &__details {
+        padding: 1rem;
+
+        ul {
+            list-style: none;
+            width: 80%;
+            margin: 0 auto; //center block element in block element
+
+            li {
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid #777;
+                }
+            }
+        }
+    }
+
+    &__cta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+    }
+
+    &__price-box {
+        //let child element to inherit these
+        color: $color-white;
+        margin-bottom: 8rem;
+    }
+
+    &__price-only {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    &__price-value {
+        font-size: 6rem;
+        font-weight: 100;
+    }
+
+    // RESPONSIVE
+    @include respond(tab-port) {
+        $card-height: auto; //res: change from 52rem to auto
+        // perspective: 150rem;
+        //-moz-perspective: 150rem;
+        height: $card-height; //same height with the children with absolute. Because if all children is positioned absolute, the parent will lose its height
+        // transition: all 0.8s ease;
+        // position: relative;
+        background-color: $color-white;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15); // move box shadow to whole card
+
+        &__side {
+            height: $card-height;
+            // transition: all 0.8s; res:no need
+            position: relative;
+            // top: 0;
+            // left: 0;
+            // width: 100%;
+            // backface-visibility: hidden;
+            // -webkit-backface-visibility: hidden; //hide the back part: 180deg fliped face
+            border-radius: 3px;
+            // overflow: hidden;
+            box-shadow: none;
+
+            // &--front {
+            //     background-color: $color-white;
+            // }
+
+            &--back {
+                background-color: $color-white;
+                transform: rotateY(0);
+                clip-path: polygon(
+                    0 15%,
+                    100% 0%,
+                    100% 100%,
+                    0 100%
+                ); // res: clip bottom part which is the back side
+
+                &-3 {
+                    background-image: linear-gradient(
+                        to right bottom,
+                        rgba($color-tertiary-light, 0.7),
+                        rgba($color-tertiary-dark, 1)
+                    );
+                    background-size: cover;
+                }
+            }
+        }
+
+        &:hover &__side--front {
+            transform: rotateY(0);
+        }
+
+        // &:hover &__side--back {
+        //     transform: rotateY(0);
+        // }
+
+        // &__picture {
+        //     background-size: cover;
+        //     height: 23rem;
+        //     background-blend-mode: screen;
+        //     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        //     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+        //     &-1 {
+        //         background-image: linear-gradient(
+        //                 to right bottom,
+        //                 rgba($color-secondary-light, 1),
+        //                 rgba($color-secondary-dark, 1)
+        //             ),
+        //             url(../img/nat-5.jpg); //move out the COMPILED css folder, not sass
+        //     }
+
+        //     &-2 {
+        //         background-image: linear-gradient(
+        //                 to right bottom,
+        //                 rgba($color-primary-light, 1),
+        //                 rgba($color-primary-dark, 1)
+        //             ),
+        //             url(../img/nat-6.jpg); //move out the COMPILED css folder, not sass
+        //     }
+
+        //     &-3 {
+        //         background-image: linear-gradient(
+        //                 to right bottom,
+        //                 rgba($color-tertiary-light, 1),
+        //                 rgba($color-tertiary-dark, 1)
+        //             ),
+        //             url(../img/nat-7.jpg); //move out the COMPILED css folder, not sass
+        //     }
+        // }
+
+        // &__heading {
+        //     font-size: 2.8rem;
+        //     font-weight: 300;
+        //     text-transform: uppercase;
+        //     text-align: right;
+        //     color: white;
+        //     position: absolute;
+        //     top: 12rem;
+        //     right: 2rem;
+        //     width: 75%;
+        // }
+
+        // &__heading--span {
+        //     padding: 1rem 1.5rem;
+        //     -webkit-box-decoration-break: clone;
+
+        //     &-1 {
+        //         background-image: linear-gradient(
+        //             to right bottom,
+        //             rgba($color-secondary-light, 0.85),
+        //             rgba($color-secondary-dark, 0.85)
+        //         );
+        //     }
+
+        //     &-2 {
+        //         background-image: linear-gradient(
+        //             to right bottom,
+        //             rgba($color-primary-light, 0.85),
+        //             rgba($color-primary-dark, 0.85)
+        //         );
+        //     }
+
+        //     &-3 {
+        //         background-image: linear-gradient(
+        //             to right bottom,
+        //             rgba($color-tertiary-light, 0.85),
+        //             rgba($color-tertiary-dark, 0.85)
+        //         );
+        //     }
+        // }
+
+        &__details {
+            padding: 1rem 3rem; // add padding on the side
+
+            // ul {
+            //     list-style: none;
+            //     width: 80%;
+            //     margin: 0 auto; //center block element in block element
+
+            //     li {
+            //         text-align: center;
+            //         font-size: 1.5rem;
+            //         padding: 1rem;
+
+            //         &:not(:last-child) {
+            //             border-bottom: 1px solid #777;
+            //         }
+            //     }
+            // }
+        }
+
+        // Front side styling
+        &__cta {
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: translate(0);
+            width: 100%;
+            padding: 7rem 4rem 4rem 4rem;
+            // text-align: center;
+        }
+
+        &__price-box {
+            //let child element to inherit these
+            // color: $color-white;
+            margin-bottom: 3rem;
+        }
+
+        // &__price-only {
+        //     font-size: 1.4rem;
+        //     text-transform: uppercase;
+        // }
+
+        &__price-value {
+            font-size: 4rem;
+            // font-weight: 100;
+        }
+    }
+}

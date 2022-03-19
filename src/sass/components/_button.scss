@@ -1,0 +1,125 @@
+.btn {
+    &,
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        /* round corner */
+        border-radius: 10rem;
+        /* handle :hover :active etc */
+        transition: all 0.2s;
+        position: relative;
+        font-size: $default-font-size;
+
+        //Change for the <button> element
+        border: none;
+        cursor: pointer;
+    }
+
+    &-discover-wrapper {
+        /* replaced .btn-animated with .btn-wrapper for same stacking context */
+        /* so the flashing effect can have different background color */
+        animation: moveInBottom 0.5s ease-out 0.75s;
+
+        /* The animation's styles will already be applied before the animation actually starts */
+        /* 0% keyframe will be applied before it starts */
+        animation-fill-mode: backwards;
+    }
+
+    .btn-discover-wrapper:hover {
+        /* remove this after playing */
+        /* provide same stacking context for the .btn and .btn::after */
+        /* https://stackoverflow.com/questions/20851452/z-index-is-canceled-by-setting-transformrotate */
+        transform: translateY(-3px);
+    }
+
+    &:hover {
+        /* move up */
+        /* transform: translateY(-3px); */
+        /* box-shadow: x y blur */
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+        &::after {
+            /* It says that, when the real button is hovered, 
+      the following styles are applied to the button's ::after pseudo-element. */
+            /* select the after element on the hover state */
+            transform: scaleX(1.5) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:focus,
+    &:active {
+        outline: none; //&:hover for adding focus effect
+        /* handle animation for button click */
+        /* -1px related to initial state */
+        transform: translateY(-1px);
+        /* reduce a bit shadow when clicked */
+        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+    }
+
+    &--white {
+        background-color: white;
+        color: $color-grey-dark;
+
+        &::after {
+            background-color: $flash-color;
+        }
+    }
+
+    &--green {
+        background-color: $color-primary;
+        color: white;
+
+        &::after {
+            background-color: rgb(219, 169, 255);
+        }
+    }
+
+    &::after {
+        /* hide a sudo button behind the action button */
+        /* insert a sudo element */
+        /* must specify content */
+        content: "";
+        /* must specify display property, can be as same as the btn */
+        display: inline-block;
+        /* ::after is like the children of the btn, so giving it 100% of parent it will be the same as the button  */
+        height: 100%;
+        width: 100%;
+        border-radius: 100px;
+        /* You should set position relative to the button also */
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all 0.4s;
+    }
+}
+
+.btn--text {
+    &:link,
+    &:visited {
+        font-size: $default-font-size;
+        color: $color-primary;
+        display: inline-block;
+        text-decoration: none;
+        //to create padding between the text and the underline
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;
+        transition: all 0.2s;
+    }
+
+    &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        box-shadow: 0 1rem 1rem rgba($color-black, 0.15);
+        transform: translateY(0);
+    }
+}

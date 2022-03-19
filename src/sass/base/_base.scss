@@ -1,0 +1,53 @@
+*,
+*::before,
+*::after {
+    /* universal selector select every element to reset rendering of every browser*/
+    /* Need to specify real and sudo element select such as *::after */
+    margin: 0;
+    padding: 0;
+    /* box-sizing by itself is not inherited */
+    box-sizing: inherit;
+}
+
+html {
+    /* 
+    set root font size 
+    This define what 1rem is.
+    setting 10px so 1rem = 10px for easy calculation 
+     */
+    font-size: 62.5%;
+
+    // @include respond(phone) {
+    //     font-size: 50%;
+    // } not needed because it will apply both phone and tab-port
+
+    // for max-width we should put the larger max-width first
+    @include respond(tab-land) {
+        font-size: 56.25%; // 1rem = 9px; 9/16
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%; // 1 rem = 8px; 8px/16px(default) = 50%
+    }
+    // for max-width we should put the larger max-width first
+
+    @include respond(big-desktop) {
+        //min-width
+        font-size: 75%; // 1rem = 12; 12/16
+    }
+}
+
+body {
+    /* better practice by making box-sizing able to be inherited */
+    box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond(tab-port) {
+        padding: 0px; // remove white border
+    }
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
