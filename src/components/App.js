@@ -164,7 +164,7 @@ const App = () => {
                                 cardStyle={2}
                                 title="NoteTube"
                                 detailItemList={[
-                                    "Full stack Web app for taking notes while watching Youtube tutorial",
+                                    "Full stack Web app for taking notes while watching Youtube tutorials",
                                     "React.js, Redux, React Router",
                                     "Spring boot",
                                     "Firebase authentication",
@@ -179,7 +179,7 @@ const App = () => {
                                 title="USTree"
                                 detailItemList={[
                                     "USThing in-app feature",
-                                    "Promote eco-friendly activity to HKUST student",
+                                    "Promote eco-friendly activities to HKUST students",
                                     "View university print balance, carbon count, join lucky draw",
                                     "Work project involved",
                                 ]}
@@ -203,7 +203,7 @@ const App = () => {
                             className="btn btn--green"
                             rel="noreferrer"
                         >
-                            Discover all my project &nbsp;
+                            Discover all my projects &nbsp;
                             <i
                                 className="fa fa-github"
                                 style={{ fontSize: "2rem" }}
