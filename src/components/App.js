@@ -154,6 +154,7 @@ const App = () => {
                                             width="100%"
                                             height="400px"
                                             src="https://www.youtube.com/embed/wV_9rjrg6s4"
+                                            allowFullScreen
                                         ></iframe>
                                     </div>
                                 }
