@@ -11,7 +11,7 @@
         top: 6rem;
         right: 6rem;
         border-radius: 50%;
-        z-index: 2000;
+        z-index: 900;
         box-shadow: 0 1rem 3rem rgba($color: $color-black, $alpha: 0.1);
         text-align: center;
         cursor: pointer;
@@ -41,7 +41,7 @@
             $color-primary-light,
             $color-primary-dark
         );
-        z-index: 1000; //goes from middle to outside
+        z-index: 700; //goes from middle to outside
 
         // transform: scale(80);
         transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1);
@@ -64,7 +64,7 @@
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 1500;
+        z-index: 800;
 
         //hide nav menu
         opacity: 0;
