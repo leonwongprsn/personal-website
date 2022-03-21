@@ -6,7 +6,7 @@ import Footer from "./Footer";
 
 const App = () => {
     return (
-        <div className="">
+        <div>
             <NavigationButton />
             <header className="header">
                 <div className="header__logo-box">
@@ -186,12 +186,14 @@ const App = () => {
                                 ]}
                                 detailUrl="#modal"
                                 images={[
-                                    "./img/ustree-demo6.PNG",
                                     "./img/ustree-demo1.PNG",
-                                    "./img/ustree-demo5.PNG",
-                                    "./img/ustree-demo4.PNG",
-                                    "./img/ustree-demo3.PNG",
                                     "./img/ustree-demo2.PNG",
+                                    "./img/ustree-demo3.PNG",
+                                    "./img/ustree-demo4.PNG",
+                                    "./img/ustree-demo5.PNG",
+                                    "./img/ustree-demo6.PNG",
+                                    "./img/ustree-demo7.PNG",
+                                    "./img/ustree-demo8.PNG",
                                 ]}
                             />
                         </div>
