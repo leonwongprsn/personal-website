@@ -57,7 +57,9 @@ export default function RotatableCard(props) {
                 onMoveNextRequest={() =>
                     setPhotoIndex((photoIndex + 1) % props.images.length)
                 }
-                imageTitle={`Screenshot of USTree ${photoIndex + 1} of 6`}
+                imageTitle={`Screenshot of USTree ${photoIndex + 1} of ${
+                    props.images.length
+                }`}
                 clickOutsideToClose={false}
             />,
             document.querySelector("#modal")
